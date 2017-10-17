@@ -1,0 +1,54 @@
+<div id="dcMain">
+
+	<div id="urHere">
+
+		后台管理中心<b>></b><strong>产品管理</strong>
+
+	</div>
+
+	<div id="manager" class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+
+    	<h3>
+
+    		<a href="{:url('product/index')}" class="actionBtn">回到产品列表</a>
+
+			<a href="{:url('product/manageSize',array('id'=>$info['id']))}" class="actionBtn add">尺码管理</a>
+			<a href="{:url('product/manageColor',array('id'=>$info['id']))}" class="actionBtn add">颜色管理</a>
+			<a href="{:url('product/manage',array('id'=>$info['id']))}" class="actionBtn add">库存管理</a>
+
+    		商品尺码颜色编辑
+
+    	</h3>
+		<form action="" method="post">
+    	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+			<tr>
+				<td width="120px">产品名称</td>
+				<td>{$info.name}</td>
+			</tr>
+			<tr>
+				<td>尺码</td>
+				<td>
+					{volist name="sizearr" id="v1"}
+						<input type="checkbox" value="{$v1.id}" name="size[]">&nbsp;{$v1.name}&nbsp;&nbsp;
+					{/volist}
+					(勾选需要的尺码，如果没有请点击尺码管理添加)
+				</td>
+			</tr>
+			<tr>
+				<td>颜色</td>
+				<td>
+					{volist name="colorarr" id="v2"}
+						<input type="checkbox" value="{$v2.id}" name="color[]">&nbsp;{$v2.name}&nbsp;&nbsp;
+					{/volist}
+					(勾选需要的颜色，如果没有请点击颜色管理添加)
+				</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td><input type="submit" value="提交" class="btn"></td>
+				</tr>
+    	</table>
+		</form>
+    </div>
+
+</div>

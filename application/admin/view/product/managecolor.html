@@ -1,0 +1,56 @@
+<div id="dcMain">
+
+	<div id="urHere">
+
+		后台管理中心<b>></b><strong>商品管理</strong>
+
+	</div>
+
+	<div id="manager" class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+
+    	<h3>
+
+    		<a href="{:url('product/index')}" class="actionBtn">回到产品列表</a>
+
+			<a href="{:url('product/manageSize',array('id'=>$info['id']))}" class="actionBtn add">尺码管理</a>
+			<a href="{:url('product/manageColor',array('id'=>$info['id']))}" class="actionBtn add">颜色管理</a>
+			<a href="{:url('product/manage',array('id'=>$info['id']))}" class="actionBtn add">库存管理</a>
+    		商品颜色管理
+
+    	</h3>
+		<form action="" method="post">
+	    	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+				<tr>
+					<td width="120px">商品名称</td>
+					<td>{$info.name}</td>
+				</tr>
+				<tr>
+					<td>颜色<span class="red">*</span></td>
+					<td><input type="text" class="inpMain" name="name" size="30"></td>
+				</tr>
+				<tr>
+					<td>排序</td>
+					<td><input type="text" class="inpMain" name="paixu" size="30" value="100"></td>
+				</tr>
+				<tr>
+					<td>已添加颜色</td>
+					<td>
+						{volist name="colorlist" id="vo"}
+							{$vo.name} <a onclick="return confirm('此操作不可恢复，确定删除吗？')" href="{:url('product/colordel',array('id'=>$vo.id))}" title='删除商品颜色'><img src="__ASSETS__images/delete.png" alt=""></a>&nbsp;&nbsp;
+						{/volist}
+					</td>
+				</tr>
+				<tr>
+						<td></td>
+						<td><input type="submit" value="添加" class="btn"></td>
+					</tr>
+	    	</table>
+		</form>
+    	<div class="pages">
+
+
+    	</div>
+
+    </div>
+
+</div>

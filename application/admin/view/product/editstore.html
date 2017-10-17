@@ -1,0 +1,76 @@
+<div id="dcMain">
+
+	<div id="urHere">
+
+		后台管理中心<b>></b><strong>产品管理</strong>
+
+	</div>
+
+	<div id="manager" class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+
+    	<h3>
+
+    		<a href="{:url('product/index')}" class="actionBtn">回到产品列表</a>
+
+			<a href="{:url('product/manageSize',array('id'=>$info['id']))}" class="actionBtn add">尺码管理</a>
+			<a href="{:url('product/manageColor',array('id'=>$info['id']))}" class="actionBtn add">颜色管理</a>
+			<a href="{:url('product/manage',array('id'=>$info['id']))}" class="actionBtn add">库存管理</a>
+    		编辑库存信息
+
+    	</h3>
+    	<form action="{:url('product/edittype')}" method="post">
+
+			<input type="hidden" name="id" value="{$info.id}">
+			<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+				<tr>
+					<td width="120px">产品名称</td>
+					<td >{$info.name}</td>
+				</tr>
+				<tr>
+					<td width="120px">尺码</td>
+					<td>
+						{volist name="sizearr" id="vo"}
+							<input type="checkbox" value="{$vo.id}" <?php if (in_array($vo['id'],$sids)){echo 'checked'; }  ?> name="size[]" id="">{$vo.name}&nbsp;
+						{/volist}
+					</td>
+				</tr>
+				<tr>
+					<td width="120px">颜色</td>
+					<td>
+						{volist name="colorarr" id="vo"}
+							<input type="checkbox" value="{$vo.id}" <?php if (in_array($vo['id'],$cids)){echo 'checked';} ?> name="color[]" id="">{$vo.name}&nbsp;
+						{/volist}
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input  type="submit" class="btn" value="提交尺码颜色修改">
+				</tr>
+			</table>
+    	</form>
+    	<form action="{:url('product/editkucun')}" method="post">
+    	<input type="hidden" name="id" value="{$info.id}">
+    	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+			
+			<tr>
+				<th>尺码</th>
+				<th>颜色</th>
+				<th>库存</th>
+				
+			</tr>
+			{volist name="storelist" id="vo"}
+				<tr>
+					<td>{$sizearr[$vo['sid']]['name']}</td>
+					<td>{$colorarr[$vo['cid']]['name']}</td>
+					<td><input type="text" name="store[{$vo['id']}]" class="inpMain" value="{$vo.store}"></td>
+					
+				</tr>			
+			
+			{/volist}
+			<tr>
+				<td colspan="3"><input type="submit" class="btn" value="提交库存修改"><!-- &nbsp;&nbsp;或者您可以&nbsp;&nbsp;<a class="btn" href="{:url('product/editchima',array('id'=>$info.id))}">修改尺码颜色</a> --></td>
+			</tr>
+    	</table>
+		</form>
+    </div>
+
+</div>

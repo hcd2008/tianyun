@@ -1,0 +1,212 @@
+<div id="dcMain">
+
+	<div id="urHere">
+
+		后台管理中心<b>></b><strong>产品管理</strong>
+
+	</div>
+
+	<div id="manager" class="mainBox" style="height:auto!important;height:550px;min-height:550px;">
+
+    	<h3>
+
+    		<a href="{:url('product/index')}" class="actionBtn">产品列表</a>
+
+    		<a href="{:url('product/add')}" class="actionBtn add">增加产品</a>
+
+    		编辑产品信息
+
+    	</h3>
+
+    	<form action="" enctype="multipart/form-data" method="post">
+
+	    	<table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
+
+	    		<tr>
+
+					<td width="140">产品分类：<span class="red">*</span></td>
+
+					<td>
+
+						<select name="id" >
+
+			    			<option value="0">--选择分类--</option>
+
+							{volist name='catlist' id="vo"}
+
+								<option {if $info['catid']==$vo['id']}selected{/if} value="{$vo.id}">{$vo.name}</option>
+
+							{/volist}
+
+		    			</select>
+
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<td width="140">产品名称：<span class="red">*</span></td>
+
+					<td><input type="text" class="inpMain" size="100" name="name" value="{$info.name}" > </td>
+
+				</tr>
+
+				<tr>
+
+					<td width="140">产品短标题：</td>
+
+					<td><input type="text" class="inpMain" size="100" name="desc"  value="{$info.desc}"> </td>
+
+				</tr>
+				<tr>
+
+					<td width="140">头图：</td>
+
+					<td><img src="/uploads/{$info.main_img_url}" width="200px"  alt=""> <br/>
+						<input type="file" name="main_img_url"> (重新上传头图)
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<td width="140">新增产品图片：</td>
+
+					<td>
+
+						<input type="file" name="imgs[]" multiple /> (按住shift多选图片)
+
+						
+					</td>
+
+				</tr>
+				<tr>
+
+				  <td>已上传公司图片</td>
+				
+				  <td>
+				    {volist name="imglist" id="vv"}
+				          <img src="/uploads/{$vv.img}" width=200 alt=""> <a onclick="return confirm('删除后不能恢复，确定继续吗？')" href="{:url('product/delimg',array('id'=>$vv['id']))}">删除</a>&nbsp;&nbsp;
+				    {/volist}
+				  </td>
+
+				</tr>
+
+				<tr>
+
+					<td width="140">产品单价：</td>
+
+					<td><input type="text" class="inpMain" size="100" name="price"  value="{$info.price}"> </td>
+
+				</tr>
+				<tr>
+
+					<td width="140">规格型号：</td>
+
+					<td><input type="text" class="inpMain" size="100" name="guige"  value="{$info.guige}"> </td>
+
+				</tr>
+
+				<tr>
+
+					<td width="140">产品库存：</td>
+
+					<td><input type="text" class="inpMain" size="100" name="stock" value="{$info.stock}" > </td>
+
+				</tr>
+
+				<tr>
+
+					<td width="140">已出售数量：</td>
+
+					<td><input type="text" class="inpMain" size="100" name="sold"  value="{$info.sold}"> </td>
+
+				</tr>
+
+
+				<tr>
+
+					<td width="140">上架状态：</td>
+
+					<td>
+
+						<input type="radio" name="state" {if $info.state==1}checked{/if} value=1 checked>上架&nbsp;&nbsp;<input type="radio" name="state" value=0 {if $info.state==0}checked{/if} >下架
+
+					</td>
+
+				</tr>
+				<tr>
+
+					<td width="140">产品秒杀：</td>
+
+					<td>
+
+						<input type="radio" name="miaosha" {if $info.miaosha==1}checked{/if} value=1 checked>是&nbsp;&nbsp;<input type="radio" name="miaosha" value=0 {if $info.miaosha==0}checked{/if} >否
+
+					</td>
+
+				</tr>
+				<tr>
+
+					<td width="140">排序：</td>
+
+					<td><input type="text" class="inpMain" size="10" name="paixu" value="{$info.paixu}" > </td>
+
+				</tr>
+
+				<!-- <tr>
+
+					<td width="140">产品详情：</td>
+
+					<td>
+
+						
+
+						<script id="container" name="content" type="text/plain">
+
+						    {$info.content}
+
+						</script>
+
+						
+
+						<script type="text/javascript" src="__ASSETS__ueditor/ueditor.config.js"></script>
+
+						
+
+						<script type="text/javascript" src="__ASSETS__ueditor/ueditor.all.js"></script>
+
+						
+
+						<script type="text/javascript">
+
+						    var ue = UE.getEditor('container',{
+
+						    	initialFrameWidth:700
+
+						    });
+
+
+
+						</script>
+
+					</td>
+
+				</tr> -->
+
+				<tr>
+
+					<td></td>
+
+					<td><input type="submit" value="提交" class="btn"></td>
+
+				</tr>
+
+	    	</table>
+
+		</form>
+
+    </div>
+
+</div>
