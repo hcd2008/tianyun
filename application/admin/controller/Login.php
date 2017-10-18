@@ -20,7 +20,7 @@
 				$param=$this->request->param();
 				$param['username']!='' or $this->error('用户名不能为空');
 				$param['password']!='' or $this->error('密码不能为空');
-				$res=$this->user_login($param['username'],$param['password']);
+				// $res=$this->user_login($param['username'],$param['password']);
 				if($this->user_login($param['username'],$param['password'])){
 					$this->success("登录成功","index/index");
 				}else{
@@ -37,6 +37,7 @@
 		 */
 		public function user_login($username,$password){
 			$user=Db::name("member")->where('username',$username)->find();
+			
 			if($user['userid']){
 				$passsalt=$user['passsalt'];
 				$password=dpassword($password,$passsalt);

@@ -11,8 +11,8 @@ body{font-family:"Microsoft Yahei";font-size:12px;color:#4F4F4F; background:#F3F
 .banner{ width:100%; height:auto; overflow:hidden; box-shadow:0 3px 5px #AEC0E8;}
 .header{ width:100%; min-width:1150px; margin:0px auto; position:relative;}
 .head{ width:1150px; margin:0px auto; height:120px;}
-.head .logo{ width:227px; height:48px; float:left; margin-top:30px;}
-.head .logo img{ width:227px; height:48px; vertical-align:top;}
+.head .logo{ width:358px; height:100px; float:left; margin-top:30px;}
+.head .logo img{ width:80%;}
 .head .nav{ width:780px; float:right;}
 .head .nav li,.head .nav li a{ display:inline-block; *display:inline; zoom:1; vertical-align:top; height:120px; width:auto; float:left;}
 .head .nav li{ margin-left:11px;}

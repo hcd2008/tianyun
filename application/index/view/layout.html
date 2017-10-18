@@ -29,15 +29,15 @@
 </div>
 <div class="header">
     <div class="head clearfix">
-        <div class="logo"><a href="index.html"><img src="__ASSETS__images/logo.jpg" alt=""/></a></div>
+        <div class="logo"><a href="index.html"><img src="__ASSETS__images/logo.png" alt=""/></a></div>
         <ul class="nav clearfix">
-            <li>
-                <a href="index.html">
+            <li <li {if $controller=='Index'}class="now"{/if}>
+                <a href="{:url('index/index')}">
                     <p>首页</p>
                     Home
                 </a>
             </li>
-            <li class="now">
+            <li {if $controller=='About'}class="now"{/if}>
                 <a href="about_a.html">
                     <p>关于我们</p>
                     About
@@ -91,14 +91,14 @@
                     News
                 </a>
             </li>
-            <li>
-                <a href="shop.html">
+            <li {if $controller=='Shop'}class="now"{/if}>
+                <a href="{:url('shop/index')}">
                     <p>在线商店</p>
                     Shop
                 </a>
             </li>
-            <li>
-                <a href="contact.html">
+            <li {if $controller=='Contact'}class="now"{/if}>
+                <a href="{:url('contact/index')}">
                     <p>联系我们</p>
                     Contact Us
                 </a>
